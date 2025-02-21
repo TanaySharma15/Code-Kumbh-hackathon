@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import SignupPage from "./pages/SingupPage";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import Hero from "./pages/Hero";
+import AboutPage from "./pages/AboutPage";
+import FeaturesPage from "./pages/Feature";
+import PricingPage from "./pages/Pricing";
+import LoginPage from "./pages/LoginPage";
+import PriceForecast from "./components/utils/PriceForecast";
+import TicketsList from "./components/utils/TicketList";
+import BookingPage from "./pages/BookingPage";
+import PaymentSuccess from "./components/utils/PaymentSuccess";
+import Payment from "./components/utils/Payment";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/main" element={<BookingPage />} />
+          <Route path="/forecast" element={<PriceForecast />} />
+          <Route path="/my" element={<TicketsList />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;

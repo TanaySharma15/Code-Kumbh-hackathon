@@ -3,10 +3,13 @@ import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from "./routes/user.routes.js";
+import paymentRoutes from "./routes/paymentRoute.js";
+
 
 dotenv.config();
 
 const app = express();
+
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
@@ -18,6 +21,7 @@ mongoose
     .catch((err) => console.log(`MongoDB connection error: ${err.message}`));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/payment", paymentRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
