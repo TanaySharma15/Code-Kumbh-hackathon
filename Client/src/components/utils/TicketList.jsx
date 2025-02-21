@@ -7,20 +7,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Popover } from "../ui/popover";
 
 const tickets = [
   {
     id: "T1234",
-    from: "New York City",
-    to: "Chicago",
+    from: "Indore",
+    to: "Jabalpur",
     date: "Feb 25, 2024",
     status: "Upcoming",
     prefrence: "window",
   },
   {
     id: "T1235",
-    from: "Chicago",
-    to: "San Francisco",
+    from: "Jabalpur",
+    to: "Mumbai",
     date: "Mar 1, 2024",
     status: "Upcoming",
     prefrence: "none",
@@ -28,6 +29,9 @@ const tickets = [
 ];
 
 export default function TicketsList() {
+  const handleQrGen = () => {
+    <Popover></Popover>;
+  };
   return (
     <Card>
       <CardHeader>
@@ -52,7 +56,7 @@ export default function TicketsList() {
                   {ticket.status}
                 </span>
               </div>
-              <Button variant="outline" size="icon">
+              <Button variant="outline" size="icon " onClick={handleQrGen}>
                 <QrCode className="h-4 w-4" />
               </Button>
             </div>
